@@ -1,0 +1,20 @@
+﻿using AppControleFinanceiro.Enum;
+using LiteDB;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppControleFinanceiro.Models
+{
+    public class Transaction
+    {
+        [BsonId]
+        public int Id { get; set; }
+        public TransactionType Type { get; set; }
+        public double Value { get; set; }
+        public DateTimeOffset DateCriaction { get; set; }
+        public string Name { get; set; }
+    }
+}
