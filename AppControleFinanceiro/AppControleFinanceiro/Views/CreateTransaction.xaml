@@ -3,10 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppControleFinanceiro.Views.CreateTransaction"
              Title="CreateTransaction">
-    <VerticalStackLayout>
-        <Label 
-            Text="Create Transaction"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Spacing="40">
+        <Border BackgroundColor="DarkGreen" Padding="15" Margin="10" Stroke="Transparent" StrokeShape="RoundRectangle 30">
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*, 30" >
+                <Label 
+                    Text="Novo" 
+                    HorizontalOptions="Center"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="0"/>
+                <Label 
+                    Text="X" 
+                    HorizontalOptions="Center" 
+                    TextColor="White"
+                    Grid.Column="1"
+                    Grid.Row="0"/>
+            </Grid>
+        </Border>
+        
+        <Grid RowDefinitions="*" ColumnDefinitions="*,*" Margin="10, 10">
+            <RadioButton IsChecked="True" Content="Receita" Grid.Column="0" Grid.Row="0"/>
+            <RadioButton Content="Despesa" Grid.Column="1" Grid.Row="0" />
+        </Grid>
+        
+        <Entry Placeholder="Nome da Transação" Margin="15, 0"/>
+        <DatePicker Margin="15, 0" Format="dd/MM/yyyy"/>
+        <Entry Placeholder="Valor" Margin="15, 0"/>
+
+        <Button Text="Salvar" BackgroundColor="DarkBlue" Margin="40,40"/>
     </VerticalStackLayout>
 </ContentPage>
