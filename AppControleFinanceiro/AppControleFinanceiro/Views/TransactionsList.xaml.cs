@@ -10,4 +10,9 @@ public partial class TransactionsList : ContentPage
 	{
 		App.Current.MainPage = new CreateTransaction();
 	}
+
+    private void GoToUpdateTransaction(object sender, EventArgs e)
+    {
+		App.Current.MainPage = new UpdateTransaction();
+    }
 }

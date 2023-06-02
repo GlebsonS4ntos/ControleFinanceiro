@@ -4,6 +4,7 @@
              x:Class="AppControleFinanceiro.Views.TransactionsList"
              Title="TransactionsList">
     <VerticalStackLayout>
+        <Button Text="edit" Clicked="GoToUpdateTransaction" BackgroundColor="Blue" TextColor="White"/>
         <Button Text="+" Clicked="GoToCreateTransaction" BackgroundColor="BlueViolet" TextColor="White"/>
     </VerticalStackLayout>
 </ContentPage>
