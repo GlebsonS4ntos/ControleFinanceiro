@@ -30,6 +30,6 @@
         <DatePicker Margin="15, 0" Format="dd/MM/yyyy"/>
         <Entry Placeholder="Valor" Margin="15, 0"/>
 
-        <Button Text="Salvar" BackgroundColor="DarkRed" Margin="40,40"/>
+        <Button Text="Salvar" BackgroundColor="DarkRed" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
     </VerticalStackLayout>
 </ContentPage>
