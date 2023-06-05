@@ -8,11 +8,11 @@ public partial class TransactionsList : ContentPage
 	}
 	private void GoToCreateTransaction(Object sender, EventArgs args)
 	{
-		App.Current.MainPage = new CreateTransaction();
+		Navigation.PushModalAsync(new CreateTransaction());
 	}
 
     private void GoToUpdateTransaction(object sender, EventArgs e)
     {
-		App.Current.MainPage = new UpdateTransaction();
+        Navigation.PushModalAsync(new UpdateTransaction());
     }
 }

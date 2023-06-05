@@ -6,4 +6,8 @@ public partial class UpdateTransaction : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void BackToMainPage(object sender, TappedEventArgs e)
+    {
+        Navigation.PopModalAsync();
+    }
 }

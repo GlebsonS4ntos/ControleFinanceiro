@@ -12,12 +12,17 @@
                     TextColor="White"
                     Grid.Column="0"
                     Grid.Row="0"/>
-                <Label 
-                    Text="X" 
+                <Image 
+                    Source="close.png"
                     HorizontalOptions="Center" 
-                    TextColor="White"
                     Grid.Column="1"
-                    Grid.Row="0"/>
+                    Grid.Row="0"
+                    WidthRequest="17"
+                    HeightRequest="17">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackToMainPage"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
         </Border>
         
