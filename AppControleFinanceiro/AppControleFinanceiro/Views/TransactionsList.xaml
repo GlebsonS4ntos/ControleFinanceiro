@@ -2,9 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppControleFinanceiro.Views.TransactionsList"
-             Title="TransactionsList">
+             Title="TransactionsList"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Button Text="edit" Clicked="GoToUpdateTransaction" BackgroundColor="Blue" TextColor="White"/>
-        <Button Text="+" Clicked="GoToCreateTransaction" BackgroundColor="BlueViolet" TextColor="White"/>
+        <Grid ColumnDefinitions="50, *, auto" RowDefinitions="auto" Margin="15,5">
+            <Label Text="S" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Salário"/>
+                <Label Text="10/07/2023" TextColor="#BABABA"/>
+            </VerticalStackLayout>
+            <Label Text="+R$ 3500,00" Grid.Column="2" VerticalOptions="Center" TextColor="Green"/>
+        </Grid>
+        <Button Text="edit" Clicked="GoToUpdateTransaction" BackgroundColor="Blue" TextColor="White" />
+        <Border BackgroundColor="Black" Stroke="Transparent" Margin="5" VerticalOptions="End" Padding="15" StrokeShape="RoundRectangle 30">
+            <Grid ColumnDefinitions="*,80" RowDefinitions="Auto,Auto,20,Auto,Auto">
+                <Label Text="Saldo" Grid.Row="0" TextColor="#979797" FontSize="18" Margin="10, 0"/>
+                <Label Text="R$ 3.400,00" Grid.Column="0" Grid.Row="1" TextColor="White" FontSize="36" Margin="10, 0"/>
+
+                <Button Text="+" Clicked="GoToCreateTransaction" BackgroundColor="Green" TextColor="White" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Center" CornerRadius="27" FontSize="48" WidthRequest="48" HeightRequest="48" Padding="0"/>
+
+                <Label Text="Receitas" Grid.Row="3" TextColor="#979797" FontSize="10" Margin="10, 0"/>
+                <Label Text="R$ 5.400,00" Grid.Row="4" TextColor="White" FontSize="12" Margin="10, 0"/>
+
+
+                <Label Text="Gastos" Grid.Column="1" Grid.Row="3" TextColor="#979797" FontSize="10"/>
+                <Label Text="R$ 2.000,00" Grid.Column="1" Grid.Row="4" TextColor="White" FontSize="12"/>
+
+            </Grid>
+        </Border>
     </VerticalStackLayout>
 </ContentPage>
