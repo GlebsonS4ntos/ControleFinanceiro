@@ -5,14 +5,20 @@
              Title="TransactionsList"
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Grid ColumnDefinitions="50, *, auto" RowDefinitions="auto" Margin="15,5">
-            <Label Text="S" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <VerticalStackLayout Grid.Column="1">
-                <Label Text="Salário"/>
-                <Label Text="10/07/2023" TextColor="#BABABA"/>
-            </VerticalStackLayout>
-            <Label Text="+R$ 3500,00" Grid.Column="2" VerticalOptions="Center" TextColor="Green"/>
-        </Grid>
+        <CollectionView x:Name="ViewListTransaction">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="50, *, auto" RowDefinitions="auto" Margin="15,5">
+                        <Label Text="S" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding DateCriaction, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#BABABA"/>
+                        </VerticalStackLayout>
+                        <Label Text="{Binding Value, StringFormat='{0:C}'}" Grid.Column="2" VerticalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
         <Button Text="edit" Clicked="GoToUpdateTransaction" BackgroundColor="Blue" TextColor="White" />
         <Border BackgroundColor="Black" Stroke="Transparent" Margin="5" VerticalOptions="End" Padding="15" StrokeShape="RoundRectangle 30">
             <Grid ColumnDefinitions="*,80" RowDefinitions="Auto,Auto,20,Auto,Auto">
