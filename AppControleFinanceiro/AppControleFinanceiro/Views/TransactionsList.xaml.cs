@@ -4,24 +4,22 @@ namespace AppControleFinanceiro.Views;
 
 public partial class TransactionsList : ContentPage
 {
-	private readonly CreateTransaction _createTransaction;
-	private readonly UpdateTransaction _updateTransaction;
 	private readonly ITransactionRepository _transactionRepository;
-	public TransactionsList(CreateTransaction createTransaction, UpdateTransaction updateTransaction, ITransactionRepository transactionRepository)
+	public TransactionsList(ITransactionRepository transactionRepository)
 	{
-		_createTransaction = createTransaction;
-		_updateTransaction = updateTransaction;
 		_transactionRepository = transactionRepository;
 		InitializeComponent();
 		ViewListTransaction.ItemsSource = _transactionRepository.GetAll();
 	}
 	private void GoToCreateTransaction(Object sender, EventArgs args)
 	{
-		Navigation.PushModalAsync(_createTransaction);
+		var page = Handler.MauiContext.Services.GetService<CreateTransaction>();
+		Navigation.PushModalAsync(page);
 	}
 
     private void GoToUpdateTransaction(object sender, EventArgs e)
     {
-        Navigation.PushModalAsync(_updateTransaction);
+        var page = Handler.MauiContext.Services.GetService<CreateTransaction>();
+        Navigation.PushModalAsync(page);
     }
 }
