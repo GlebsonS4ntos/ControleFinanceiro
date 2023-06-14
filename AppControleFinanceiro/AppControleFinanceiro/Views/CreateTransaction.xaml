@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppControleFinanceiro.Views.CreateTransaction"
              Title="CreateTransaction">
-    <VerticalStackLayout Spacing="40">
+    <VerticalStackLayout Spacing="30">
         <Border BackgroundColor="DarkGreen" Padding="15" Margin="10" Stroke="Transparent" StrokeShape="RoundRectangle 30">
             <Grid RowDefinitions="Auto" ColumnDefinitions="*, 30" >
                 <Label 
@@ -25,16 +25,18 @@
                 </Image>
             </Grid>
         </Border>
-        
-        <Grid RowDefinitions="*" ColumnDefinitions="*,*" Margin="10, 10">
-            <RadioButton IsChecked="True" Content="Receita" Grid.Column="0" Grid.Row="0"/>
-            <RadioButton Content="Despesa" Grid.Column="1" Grid.Row="0" />
+
+        <Label TextColor="Red" x:Name="LabelErro" IsVisible="false" Margin="15"/>
+
+        <Grid RowDefinitions="*" ColumnDefinitions="*,*" Margin="10, 0">
+            <RadioButton IsChecked="True" Content="Receita" Grid.Column="0" Grid.Row="0" x:Name="RadioIncome"/>
+            <RadioButton Content="Despesa" Grid.Column="1" Grid.Row="0" x:Name="RadioExpense"/>
         </Grid>
         
-        <Entry Placeholder="Nome da Transação" Margin="15, 0"/>
-        <DatePicker Margin="15, 0" Format="dd/MM/yyyy"/>
-        <Entry Placeholder="Valor" Margin="15, 0"/>
+        <Entry Placeholder="Nome da Transação" Margin="15, 0" x:Name="TransactionName"/>
+        <DatePicker Margin="15, 0" Format="dd/MM/yyyy" x:Name="TransactionDate"/>
+        <Entry Placeholder="Valor" Margin="15, 0" x:Name="TransactionValue"/>
 
-        <Button Text="Salvar" BackgroundColor="DarkBlue" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
+        <Button Text="Salvar" BackgroundColor="DarkBlue" HorizontalOptions="CenterAndExpand" CornerRadius="20" Clicked="Criar_Transaction"/>
     </VerticalStackLayout>
 </ContentPage>
