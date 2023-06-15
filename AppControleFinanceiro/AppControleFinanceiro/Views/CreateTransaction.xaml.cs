@@ -1,5 +1,6 @@
 using AppControleFinanceiro.Models;
 using AppControleFinanceiro.Repositories;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Text;
 
 namespace AppControleFinanceiro.Views;
@@ -34,9 +35,8 @@ public partial class CreateTransaction : ContentPage
 
             Navigation.PopModalAsync();
 
-            //temporario
-            var count = _transactionRepository.GetAll().Count();
-            App.Current.MainPage.DisplayAlert("Mensagem", $"Tem {count} dados no banco", "Ok");
+            WeakReferenceMessenger.Default.Send<string>("");
+
         }
     }
 

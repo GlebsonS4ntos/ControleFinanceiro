@@ -1,4 +1,5 @@
 using AppControleFinanceiro.Repositories;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace AppControleFinanceiro.Views;
 
@@ -9,8 +10,17 @@ public partial class TransactionsList : ContentPage
 	{
 		_transactionRepository = transactionRepository;
 		InitializeComponent();
-		ViewListTransaction.ItemsSource = _transactionRepository.GetAll();
+		Reload();
+		WeakReferenceMessenger.Default.Register<string>(this, (e, msg) =>
+		{
+			Reload();
+		});
 	}
+	private void Reload()
+	{
+        ViewListTransaction.ItemsSource = _transactionRepository.GetAll();
+    }
+
 	private void GoToCreateTransaction(Object sender, EventArgs args)
 	{
 		var page = Handler.MauiContext.Services.GetService<CreateTransaction>();
