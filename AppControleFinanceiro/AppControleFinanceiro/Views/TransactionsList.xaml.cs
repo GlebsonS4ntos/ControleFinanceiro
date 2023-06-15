@@ -18,7 +18,26 @@ public partial class TransactionsList : ContentPage
 	}
 	private void Reload()
 	{
-        ViewListTransaction.ItemsSource = _transactionRepository.GetAll();
+		double despesas = 0;
+		double receitas = 0;
+		var itens = _transactionRepository.GetAll();
+		ViewListTransaction.ItemsSource = itens;
+		foreach(var item in itens)
+		{
+			if (item.Type == Enum.TransactionType.Income)
+			{
+				receitas += item.Value;
+			}
+			else
+			{
+				despesas += item.Value;
+			}
+		}
+		LabelGasto.Text = despesas.ToString("C");
+		LabelReceita.Text = receitas.ToString("C");
+
+		LabelSaldo.Text = (receitas - despesas).ToString("C");
+
     }
 
 	private void GoToCreateTransaction(Object sender, EventArgs args)

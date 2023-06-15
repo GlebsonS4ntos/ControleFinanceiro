@@ -23,16 +23,16 @@
         <Border BackgroundColor="Black" Stroke="Transparent" Margin="5" VerticalOptions="End" Padding="15" StrokeShape="RoundRectangle 30">
             <Grid ColumnDefinitions="*,80" RowDefinitions="Auto,Auto,20,Auto,Auto">
                 <Label Text="Saldo" Grid.Row="0" TextColor="#979797" FontSize="18" Margin="10, 0"/>
-                <Label Text="R$ 3.400,00" Grid.Column="0" Grid.Row="1" TextColor="White" FontSize="36" Margin="10, 0"/>
+                <Label Grid.Column="0" Grid.Row="1" TextColor="White" FontSize="36" Margin="10, 0" x:Name="LabelSaldo"/>
 
                 <Button Text="+" Clicked="GoToCreateTransaction" BackgroundColor="Green" TextColor="White" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Center" CornerRadius="27" FontSize="48" WidthRequest="48" HeightRequest="48" Padding="0"/>
 
                 <Label Text="Receitas" Grid.Row="3" TextColor="#979797" FontSize="10" Margin="10, 0"/>
-                <Label Text="R$ 5.400,00" Grid.Row="4" TextColor="White" FontSize="12" Margin="10, 0"/>
+                <Label Grid.Row="4" TextColor="White" FontSize="12" Margin="10, 0" x:Name="LabelReceita"/>
 
 
                 <Label Text="Gastos" Grid.Column="1" Grid.Row="3" TextColor="#979797" FontSize="10"/>
-                <Label Text="R$ 2.000,00" Grid.Column="1" Grid.Row="4" TextColor="White" FontSize="12"/>
+                <Label Grid.Column="1" Grid.Row="4" TextColor="White" FontSize="12" x:Name="LabelGasto"/>
 
             </Grid>
         </Border>
