@@ -1,5 +1,7 @@
+using AppControleFinanceiro.Models;
 using AppControleFinanceiro.Repositories;
 using CommunityToolkit.Mvvm.Messaging;
+using Microsoft.Maui.Controls;
 
 namespace AppControleFinanceiro.Views;
 
@@ -46,9 +48,13 @@ public partial class TransactionsList : ContentPage
 		Navigation.PushModalAsync(page);
 	}
 
-    private void GoToUpdateTransaction(object sender, EventArgs e)
+    private void TapGestureRecognizer_Tapped_ToTrasactionEdit(object sender, TappedEventArgs e)
     {
-        var page = Handler.MauiContext.Services.GetService<CreateTransaction>();
+		var grid = (Grid)sender;
+		var gestureTap = (TapGestureRecognizer)grid.GestureRecognizers[0];
+		var transaction = (Transaction) gestureTap.CommandParameter;
+        var page = Handler.MauiContext.Services.GetService<UpdateTransaction>();
+		page.SetTransactionForEdit(transaction);
         Navigation.PushModalAsync(page);
     }
 }
