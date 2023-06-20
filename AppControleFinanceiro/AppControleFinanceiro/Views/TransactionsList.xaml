@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:convertes="clr-namespace:AppControleFinanceiro.Libraries.Convertes"
              x:Class="AppControleFinanceiro.Views.TransactionsList"
              Title="TransactionsList"
              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convertes:TransactionValueColorConvert x:Key="TransactionValueColorConvert"/>
+            <convertes:TransactionValueConverter x:Key="TransactionValueConvert"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <VerticalStackLayout>
         <CollectionView x:Name="ViewListTransaction">
             <CollectionView.ItemTemplate>
@@ -17,7 +25,10 @@
                             <Label Text="{Binding Name}"/>
                             <Label Text="{Binding DateCriaction, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#BABABA"/>
                         </VerticalStackLayout>
-                        <Label Text="{Binding Value, StringFormat='{0:C}'}" Grid.Column="2" VerticalOptions="Center"/>
+                        <Label Text="{Binding ., Converter={StaticResource TransactionValueConvert}}" 
+                               Grid.Column="2" 
+                               VerticalOptions="Center" 
+                               TextColor="{Binding .,Converter={StaticResource TransactionValueColorConvert}}"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
