@@ -20,11 +20,11 @@
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="TapGestureRecognizer_Tapped_ToTrasactionEdit" CommandParameter="{Binding .}"/>
                         </Grid.GestureRecognizers>
-                        <Border HeightRequest="40" WidthRequest="40" BackgroundColor="White" StrokeShape="RoundRectangle 20" Stroke="Transparent">
+                        <Border HeightRequest="40" WidthRequest="40" BackgroundColor="White" StrokeShape="RoundRectangle 20" Stroke="Transparent" x:Name="BorderImgDelete">
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_To_Delete_Transaction" NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
                             </Border.GestureRecognizers>
-                            <ImageButton Source="delete.png" Grid.Column="0" HeightRequest="30" WidthRequest="30" Margin="0" Padding="5">
+                            <ImageButton Source="delete.png" Grid.Column="0" HeightRequest="30" WidthRequest="30" Margin="0" Padding="5" x:Name="ImgDelete">
                                 <ImageButton.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped_To_Delete_Transaction"/>
                                 </ImageButton.GestureRecognizers>
