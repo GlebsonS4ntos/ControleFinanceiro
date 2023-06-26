@@ -24,7 +24,7 @@
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_To_Delete_Transaction" NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
                             </Border.GestureRecognizers>
-                            <ImageButton Source="delete.png" Grid.Column="0" HeightRequest="30" WidthRequest="30" Margin="0" Padding="5" x:Name="ImgDelete">
+                            <ImageButton Source="delete.png" Grid.Column="0" HeightRequest="30" WidthRequest="30" Margin="0" Padding="{OnPlatform Default=5, Android=2}" x:Name="ImgDelete">
                                 <ImageButton.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped_To_Delete_Transaction"/>
                                 </ImageButton.GestureRecognizers>
@@ -47,7 +47,7 @@
                 <Label Text="Saldo" Grid.Row="0" TextColor="#979797" FontSize="18" Margin="10, 0"/>
                 <Label Grid.Column="0" Grid.Row="1" TextColor="White" FontSize="36" Margin="10, 0" x:Name="LabelSaldo"/>
 
-                <Button Text="+" Clicked="GoToCreateTransaction" BackgroundColor="Green" TextColor="White" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Center" CornerRadius="27" FontSize="48" WidthRequest="48" HeightRequest="48" Padding="0"/>
+                <Button Text="+" Clicked="GoToCreateTransaction" BackgroundColor="Green" TextColor="White" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Center" CornerRadius="27" FontSize="{OnPlatform Default=48, Android=30}" WidthRequest="48" HeightRequest="48" Padding="0"/>
 
                 <Label Text="Receitas" Grid.Row="3" TextColor="#979797" FontSize="10" Margin="10, 0"/>
                 <Label Grid.Row="4" TextColor="White" FontSize="12" Margin="10, 0" x:Name="LabelReceita"/>
