@@ -1,3 +1,4 @@
+using AppControleFinanceiro.Libraries.Utils.FixBugs;
 using AppControleFinanceiro.Models;
 using AppControleFinanceiro.Repositories;
 using CommunityToolkit.Mvvm.Messaging;
@@ -18,12 +19,7 @@ public partial class CreateTransaction : ContentPage
     private void BackToMainPage(object sender, TappedEventArgs e)
     {
 		Navigation.PopModalAsync();
-#if ANDROID
-            if (Platform.CurrentActivity.CurrentFocus != null)
-            {
-                Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-            }
-#endif
+        FixKeyboardBug.HideKeyboard();
     }
 
     private void Criar_Transaction(object sender, EventArgs e)
@@ -42,7 +38,7 @@ public partial class CreateTransaction : ContentPage
             Navigation.PopModalAsync();
 
             WeakReferenceMessenger.Default.Send<string>("");
-
+            FixKeyboardBug.HideKeyboard();
         }
     }
 

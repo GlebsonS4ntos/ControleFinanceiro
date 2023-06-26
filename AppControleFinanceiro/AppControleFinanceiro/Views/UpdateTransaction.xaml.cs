@@ -1,3 +1,4 @@
+using AppControleFinanceiro.Libraries.Utils.FixBugs;
 using AppControleFinanceiro.Models;
 using AppControleFinanceiro.Repositories;
 using CommunityToolkit.Mvvm.Messaging;
@@ -32,6 +33,7 @@ public partial class UpdateTransaction : ContentPage
     private void BackToMainPage(object sender, TappedEventArgs e)
     {
         Navigation.PopModalAsync();
+        FixKeyboardBug.HideKeyboard();
     }
     private void Update_Transaction(object sender, EventArgs e)
     {
@@ -50,6 +52,7 @@ public partial class UpdateTransaction : ContentPage
             Navigation.PopModalAsync();
 
             WeakReferenceMessenger.Default.Send<string>("");
+            FixKeyboardBug.HideKeyboard();
         }
     }
 
