@@ -26,7 +26,7 @@
             </Grid>
         </Border>
 
-        <Label TextColor="Red" x:Name="LabelErro" IsVisible="false" Margin="15"/>
+        <Label TextColor="{AppThemeBinding Light=Red,Dark='#F37474'}" x:Name="LabelErro" IsVisible="false" Margin="15"/>
 
         <Grid RowDefinitions="*" ColumnDefinitions="*,*" Margin="10, 10">
             <RadioButton IsChecked="True" Content="Receita" Grid.Column="0" Grid.Row="0" x:Name="RadioIncome"/>
