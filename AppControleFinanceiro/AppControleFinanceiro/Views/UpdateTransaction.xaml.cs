@@ -41,7 +41,7 @@ public partial class UpdateTransaction : ContentPage
             {
                 Id = _transaction.Id,
                 Name = TransactionName.Text,
-                Value = double.Parse(TransactionValue.Text),
+                Value = Math.Abs(double.Parse(TransactionValue.Text)),
                 DateCriaction = TransactionDate.Date,
                 Type = RadioIncome.IsChecked ? Enum.TransactionType.Income : Enum.TransactionType.Expenses
             };

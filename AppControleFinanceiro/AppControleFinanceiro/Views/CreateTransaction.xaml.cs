@@ -27,7 +27,7 @@ public partial class CreateTransaction : ContentPage
             Transaction transacao = new Transaction()
             {
                 Name = TransactionName.Text,
-                Value = double.Parse(TransactionValue.Text),
+                Value = Math.Abs(double.Parse(TransactionValue.Text)),
                 DateCriaction = TransactionDate.Date,
                 Type = RadioIncome.IsChecked ? Enum.TransactionType.Income : Enum.TransactionType.Expenses
             };
