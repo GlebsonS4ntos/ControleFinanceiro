@@ -18,6 +18,12 @@ public partial class CreateTransaction : ContentPage
     private void BackToMainPage(object sender, TappedEventArgs e)
     {
 		Navigation.PopModalAsync();
+#if ANDROID
+            if (Platform.CurrentActivity.CurrentFocus != null)
+            {
+                Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
+            }
+#endif
     }
 
     private void Criar_Transaction(object sender, EventArgs e)
